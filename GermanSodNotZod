@@ -86,7 +86,7 @@ public class GermanSodNotZod
 					discountName = DISCOUNT_NAME_NONE;
 					discountRate = DISCOUNT_RATE_NONE;
 					noDiscountCount++;
-				}//E
+				}
 				//End of else
 				if (itemSelection == 'A')
 				{
@@ -94,7 +94,7 @@ public class GermanSodNotZod
 					itemPrice = PRICE_PREMIUM;
 					premiumCount++;
 
-				}//End of if
+				}//End of else
 				else if(itemSelection == 'B')
 				{
 					itemName = NAME_SPECIAL;
