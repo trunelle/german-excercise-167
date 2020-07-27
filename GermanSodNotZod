@@ -1,3 +1,9 @@
+//AUTHOR: [Trunelle German]
+//COURSE: [CPT 167]
+//PURPOSE: [This program will allow you to shop and add in your discount to complete your purchase.]
+//CREATEDATE: [7/12/2020]
+
+
 package edu.cpt167.german.participation6;
 
 import java.util.Scanner;
@@ -94,7 +100,7 @@ public class GermanSodNotZod
 					itemPrice = PRICE_PREMIUM;
 					premiumCount++;
 
-				}//End of else
+				}//End of if
 				else if(itemSelection == 'B')
 				{
 					itemName = NAME_SPECIAL;
@@ -121,20 +127,24 @@ public class GermanSodNotZod
 						subTotal);
 				//Item Selection
 				itemSelection = validateItemMenu(input);
-				//Calculate
-				tax = subTotal * TAX_RATE;
-				totalCost = subTotal + tax;
-				grandTotal = grandTotal + totalCost;
 
-			}
-			//Display Order Total
-			displayOrderTotal(subTotal, tax, totalCost);
+					//Calculate
+				
+					tax = subTotal * TAX_RATE;
+					totalCost = subTotal + tax;
+					grandTotal = grandTotal + totalCost;
+				//Display Order Total
+				}
+				displayOrderTotal(subTotal, tax, totalCost);
+				
+				subTotal = RESET_VALUE;
+				
+			
 
-			subTotal = RESET_VALUE;
-
-			menuSelection = validateMainMenu(input);
+				menuSelection = validateMainMenu(input);
+			
 		}
-
+			
 
 		//Display Final Report
 		if(grandTotal > 0.0)
@@ -168,9 +178,9 @@ public class GermanSodNotZod
 
 		System.out.println("DISCOUNT MENU");
 		System.out.println("\n~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~");
-		System.out.printf("%-6s%-15s%-2.0f%2s\n", "A for", DISCOUNT_NAME_MEMBER, DISCOUNT_RATE_MEMBER * 100, "%");
-		System.out.printf("%-6s%-15s%-2.0f%2s\n", "B for", DISCOUNT_NAME_SENIOR, DISCOUNT_RATE_SENIOR * 100, "%");
-		System.out.printf("%-6s%-15s%-2.0f%2s\n", "C for", DISCOUNT_NAME_NONE, DISCOUNT_RATE_NONE * 100, "%");
+		System.out.printf("%-6s%-15s%-2.1f%2s\n", "A for", DISCOUNT_NAME_MEMBER, DISCOUNT_RATE_MEMBER * 100, "%");
+		System.out.printf("%-6s%-15s%-2.1f%2s\n", "B for", DISCOUNT_NAME_SENIOR, DISCOUNT_RATE_SENIOR * 100, "%");
+		System.out.printf("%-6s%-16s%-2.1f%2s\n", "C for", DISCOUNT_NAME_NONE, DISCOUNT_RATE_NONE * 100, "%");
 		System.out.printf("%-6s%-15s\n", "Q for", "QUIT");
 		System.out.println("Enter your selection here: ");
 		localMenuSelection = borrowedInput.next().toUpperCase().charAt(0);
@@ -181,9 +191,9 @@ public class GermanSodNotZod
 			System.out.println("\nInvalid Item Menu entered: "+ localMenuSelection + "\n");
 			System.out.println("DISCOUNT MENU");
 			System.out.println("\n~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~ ~~~");
-			System.out.printf("%-6s%-15s%-2.0f%2s\n", "A for", DISCOUNT_NAME_MEMBER, DISCOUNT_RATE_MEMBER * 100, "%");
-			System.out.printf("%-6s%-15s%-2.0f%2s\n", "B for", DISCOUNT_NAME_SENIOR, DISCOUNT_RATE_SENIOR * 100, "%");
-			System.out.printf("%-6s%-15s%-2.0f%2s\n", "C for", DISCOUNT_NAME_NONE, DISCOUNT_RATE_NONE * 100, "%");
+			System.out.printf("%-6s%-15s%-2.1f%2s\n", "A for", DISCOUNT_NAME_MEMBER, DISCOUNT_RATE_MEMBER * 100, "%");
+			System.out.printf("%-6s%-15s%-2.1f%2s\n", "B for", DISCOUNT_NAME_SENIOR, DISCOUNT_RATE_SENIOR * 100, "%");
+			System.out.printf("%-6s%-16s%-2.1f%2s\n", "C for", DISCOUNT_NAME_NONE, DISCOUNT_RATE_NONE * 100, "%");
 			System.out.printf("%-6s%-15s\n", "Q for", "QUIT");
 			System.out.println("Enter your selection here: ");
 			localMenuSelection = borrowedInput.next().toUpperCase().charAt(0);
@@ -228,7 +238,7 @@ public class GermanSodNotZod
 
 		int localHowMany = 0;
 
-		System.out.println("How many would you like to purcahse?");
+		System.out.println("How many would you like to purchase?");
 		localHowMany = borrowedInput.nextInt();
 		//Validate input
 		while(localHowMany <= 0)
